@@ -46,7 +46,8 @@ jobs:
       - run: 
           name: dotnet restore
           command: dotnet restore
-      - snyk/scan
+      - snyk/scan:
+          additional-arguments: --file=Spotify^ Merger.sln
 
 workflows:
   build-test-scan:
