@@ -9,6 +9,9 @@ executors:
   dotnet-executor:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
+  snyk-executor:
+    docker:
+      - image: snyk/snyk:alpine
 
 jobs:
   build-backend:
@@ -28,7 +31,7 @@ jobs:
           command: dotnet test
   
   snyk-backend:
-    executor: dotnet-executor
+    executor: snyk-executor
     steps:
       - checkout
       - run: 
