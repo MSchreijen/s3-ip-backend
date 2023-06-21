@@ -32,3 +32,20 @@ jobs:
           name: dotnet restore
           command: dotnet restore
       - snyk/scan
+
+workflows:
+  build-test-scan:
+    jobs:
+      - build-backend:
+          filters:
+            branches:
+              only:
+                - main
+      - test-backend:
+          requires:
+            - build-backend
+      - snyk-backend:
+          requires:
+            - build-backend
+            - test-backend
+          
