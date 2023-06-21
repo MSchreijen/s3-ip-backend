@@ -1,0 +1,6 @@
+version: v1.5.0
+ignore:
+    'SNYK-DOTNET-SYSTEMDRAWINGCOMMON-3063427':
+        - '* > System.Drawing.Common':
+            reason: 'No fix available'
+            expires: '2024-01-01T00:00:00.000Z'
